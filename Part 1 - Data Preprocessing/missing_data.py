@@ -17,3 +17,5 @@ imputer = Imputer(missing_values='NaN', strategy= 'mean', axis=0)
 
 # fitting the imputer in out data set
 imputer.fit(X[:, 1:3])
+X[:, 1:3] = imputer.transform(X[:, 1:3])
+print(X)
