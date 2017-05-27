@@ -31,6 +31,12 @@ summary(regressor)
 regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend, data = dataset)
 summary(regressor)
 
+
+# Step 3, 4, 5 : remove less significant column/ feature and fit model again 
+# Removing even .06 p value
+regressor = lm(formula = Profit ~ R.D.Spend, data = dataset)
+summary(regressor)
+
 # Predecting with MLR model
 y_pred = predict(regressor, newdata = test_set)
 
