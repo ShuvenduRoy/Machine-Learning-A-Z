@@ -42,3 +42,10 @@ plt.xlabel('Position leevel')
 plt.ylabel('Salary')
 plt.show()
 
+
+# Predicting with linear regression
+lin_reg.predict(6.5)
+
+
+# Predicting with polynomial regression
+lin_reg2.predict(poly_reg.fit_transform(6.5))
