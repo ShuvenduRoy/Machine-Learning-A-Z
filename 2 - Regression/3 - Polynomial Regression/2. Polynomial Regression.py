@@ -16,7 +16,7 @@ lin_reg.fit(X, y)
 
 # Fitting Polunomial regression in model
 from sklearn.preprocessing import PolynomialFeatures
-poly_reg = PolynomialFeatures(degree = 3)
+poly_reg = PolynomialFeatures(degree = 4)
 X_poly = poly_reg.fit_transform(X)
 
 lin_reg2 = LinearRegression()
@@ -33,7 +33,10 @@ plt.show()
 
 # Visualization of Poinimial Regression
 plt.scatter(X, y, color='red')
-plt.plot(X, lin_reg2.predict(poly_reg.fit_transform(X)), color='blue')
+# make more precission
+X_grid = np.arange(min(X), max(X), 0.1)
+X_grid = X_grid.reshape((len(X_grid), 1))
+plt.plot(X_grid, lin_reg2.predict(poly_reg.fit_transform(X_grid)), color='blue')
 plt.title('Truth or Bluff(Polinomial Regression)')
 plt.xlabel('Position leevel')
 plt.ylabel('Salary')
