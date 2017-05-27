@@ -20,3 +20,7 @@ test_set = subset(dataset, split == FALSE)
 regressor = lm(formula = Profit ~ .,
                data = training_set)
 # type summary(regressor) in the console to get the summary
+
+
+# Predecting with MLR model
+y_pred = predict(regressor, newdata = test_set)
