@@ -15,3 +15,8 @@ split = sample.split(dataset$Profit, SplitRatio = 0.8)
 training_set = subset(dataset, split == TRUE)
 test_set = subset(dataset, split == FALSE)
 
+# Fitting multiple linear regressor
+# regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State)
+regressor = lm(formula = Profit ~ .,
+               data = training_set)
+# type summary(regressor) in the console to get the summary
