@@ -43,6 +43,7 @@ import statsmodels.formula.api as sm
 X = np.append(arr = np.ones((50,1)).astype(int), values = X, axis = 1)
 
 # find the Sl values that are above the define SL say 0.05 in this case, the the highest amg them
+# *** Note here we taking full data set to have good prediction of which columns are statistically important ***
 X_opt = X[:, [0,1,2,3,4,5]]
 regression_OLS = sm.OLS(endog= y, exog= X_opt).fit()
 regression_OLS.summary()
