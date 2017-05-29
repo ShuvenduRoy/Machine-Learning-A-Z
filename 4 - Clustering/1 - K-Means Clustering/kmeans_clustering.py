@@ -5,22 +5,17 @@ import pandas as pd
 
 # Importing the dataset
 dataset = pd.read_csv('mall.csv')
-X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, 3].values
+X = dataset.iloc[:, [3,4]].values
 
+from sklearn.cluster import KMeans
+wcss = []
 
-# Splitting the dataset
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
-# print(X_train, X_test, y_train, y_test)
+# Using the wlbow method to find the optimal number of clusters
+for i in range(1, 11):
+    kmeans = KMeans(n_clusters=i, init='k-means++', max_iter=300, n_init=10, random_state=0)
+    kmeans.fit(X)
+    wcss.append(kmeans.inertia_)
 
-
-"""# Feature Scaling
-from sklearn.preprocessing import StandardScaler
-sc_X = StandardScaler()
-X_train = sc_X.fit_transform(X_train)
-X_test = sc_X.transform(X_test)
-
-print(X_train)
-print(X_test)
-"""
+plt.plot(range(1, 11), wcss)
+plt.title('The Elbow method')
+plt.show()
