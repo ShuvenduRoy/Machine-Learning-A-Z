@@ -19,3 +19,8 @@ for i in range(1, 11):
 plt.plot(range(1, 11), wcss)
 plt.title('The Elbow method')
 plt.show()
+
+
+# Applying k-means to the mall database
+kmeans = KMeans(n_clusters=5, random_state=0)
+y_kmeans = kmeans.fit_predict(X)
