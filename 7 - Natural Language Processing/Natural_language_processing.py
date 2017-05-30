@@ -9,3 +9,8 @@ dataset = pd.read_csv('Restaurant_Reviews.tsv', delimiter = '\t', quoting = 3) #
 import re
 # Keeping the letters only
 review = re.sub('[^a-zA-Z]',' ', dataset['Review'][0])
+# Kepping the lower letter only
+review = review.lower()
+
+import nltk
+nltk.download('stopwords')
