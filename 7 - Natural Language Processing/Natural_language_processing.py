@@ -7,6 +7,7 @@ dataset = pd.read_csv('Restaurant_Reviews.tsv', delimiter = '\t', quoting = 3) #
 
 # Getting the stopwords
 import nltk
+from nltk.stem.porter import PorterStemmer
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 
@@ -14,9 +15,11 @@ from nltk.corpus import stopwords
 import re
 # Keeping the letters only
 review = re.sub('[^a-zA-Z]',' ', dataset['Review'][0])
-# Kepping the lower letter only
+# Keeping the lower letter only
 review = review.lower()
 review = review.split()
-review = [word for word in review if not word in set(stopwords.words('english'))]
+
+ps = PorterStemmer()
+review = [ps.stem(word) for word in review if not word in set(stopwords.words('english'))]
 
 
