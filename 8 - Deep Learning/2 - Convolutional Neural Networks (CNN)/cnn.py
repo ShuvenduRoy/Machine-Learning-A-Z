@@ -18,3 +18,6 @@ from keras.layers import MaxPooling2D
 from keras.layers import Flatten
 from keras.layers import Dense
 
+# Initializing the CNN
+classifier = Sequential()
+
