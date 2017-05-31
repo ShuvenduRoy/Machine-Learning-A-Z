@@ -51,7 +51,12 @@ classifier.add(Dense(output_dim = 6, init = 'uniform', activation='relu', input_
 classifier.add(Dense(output_dim = 6, init = 'uniform', activation='relu'))
 
 # Adding the last hidden layer
-classifier.add(Dense(output_dim = 6, init = 'uniform', activation='relu', input_dim = 11))
+classifier.add(Dense(output_dim = 1, init = 'uniform', activation='sigmoid'))
+
+
+# Compiling the ANN
+classifier.compile()
+
 
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
