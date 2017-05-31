@@ -41,6 +41,8 @@ import keras
 from keras.models import Sequential
 from keras.layers import Dense
 
+# Initializing ANN
+classifier = Sequential()
 
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
