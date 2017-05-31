@@ -55,11 +55,16 @@ classifier.add(Dense(output_dim = 1, init = 'uniform', activation='sigmoid'))
 
 
 # Compiling the ANN
-classifier.compile()
+classifier.compile(optimizer='adam', loss='binary_crossentropy',metrics=['accuracy'])
+
+
+# Fitting the ANN to the Training model
+classifier.fit(X_train, y_train, batch_size=10, nb_epoch = 100)
 
 
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
+
 
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
