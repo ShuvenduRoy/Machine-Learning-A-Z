@@ -1,4 +1,4 @@
-# Logistic Regression
+# Principla component analysis
 
 # Importing the libraries
 import numpy as np
@@ -23,7 +23,7 @@ X_test = sc_X.fit_transform(X_test)
 
 # Applying PCA
 from sklearn.decomposition import PCA
-pca = PCA(n_components=None)
+pca = PCA(n_components=2) # According to observation top 2 explains enough
 X_train = pca.fit_transform(X_train)
 X_test = pca.transform(X_test)
 explained_variance = pca.explained_variance_ratio_
